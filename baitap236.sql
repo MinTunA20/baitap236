@@ -68,4 +68,19 @@ Thoi_gian time
 -- 11 
 alter table tblPhim add Mota nvarchar(40);
 update tblphim set Mota = concat('đây là loại bộ phim thể loại ',tblphim.loai_phim ) where PhimID > 0;
- 
+
+ -- 12Xóa tất cả các khóa ngoại trong các bảng trên.						
+ALTER TABLE ghe 
+DROP foreign key fk_1;
+ALTER TABLE ve 
+DROP foreign key fk_2,
+DROP foreign key fk_3;
+
+-- 13 Xóa dữ liệu ở bảng tblGhe
+delete from ghe; 
+
+#14.Hiển thị ngày giờ hiện tại và ngày giờ hiện tại cộng thêm 5000 phút
+
+select now() from phim where phimID = 1;
+
+select ADDTIME( 50000, now()) from tblphim where phimID = 1;
